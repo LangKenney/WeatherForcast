@@ -1,19 +1,11 @@
-<style>
-    body{
-        background-image: url('https://unsplash.it/1600/1200?image=685');
-        background-repeat: no-repeat;
-        background-size: 100%;
-    }
-    html {
-        height: 100%
-    }
-</style>
 <div class="row">
     <div class='col-md-6 col-md-offset-3'>
-        <h1 class='text-center'>Forcast by city</h1>
-        <form class='form-group'>
+        <h1 class='text-center'>Forecast by city</h1>
+        <form class='form-group' method="GET" action="#/forecast">
             <input type='text' ng-model='city' class='form-control text-center' placeholder='City Search' >
+            <input class='btn btn-primary btn-block' type="submit" value="Search"/>
         </form>
-        <a class='btn btn-primary btn-block' href='#/forcast'>Search</a>
+        <!--<a class='btn btn-primary btn-block' href='#/forecast'>Search</a>-->
+
     </div>
 </div>

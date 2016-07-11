@@ -1,0 +1,88 @@
+<style>
+    body{
+        text-align: center;
+        background-color: black;
+    }
+
+    .titleString{
+        font-size: 6em;
+    }
+    .left {
+        text-align: left;
+        margin-left: 10px;
+    }
+</style>
+
+<h1 class="titleString">Forecast for {{city}} - {{weatherResult.city.country}}</h1>
+<h3>Days: <a href="#/forecast/2" ng-class="{'bg-primary': days === '2' }">2</a>|<a href="#/forecast/5" ng-class="{'bg-primary': days === '5' }">5</a>|<a href="#/forecast/7" ng-class="{'bg-primary': days === '7' }">7</a></h3>
+<div class='col-md-10 col-md-offset-1'>
+    <div class="row ">
+        <!--Course answer-->
+        <div ng-repeat="w in weatherResult.list">
+            <div class='row panel panel-default'>
+                <h1 class='left'><span class="glyphicon glyphicon-minus" aria-hidden="true"></span> {{convertToDate(w.dt) | date:'MMM d, y'}} <span class="glyphicon glyphicon-minus" aria-hidden="true"></span></h1>
+                <div class='col-md-4'>
+                    <h3>Overall: {{w.weather[0].main}} - <img src='http://openweathermap.org/img/w/{{w.weather[0].icon}}.png'></h3>
+                    <h3>Wind: {{w.speed}}MPH</h3>
+                </div>
+
+                <div class='col-md-4'>
+                    <h3>Temperature: {{convertToFahrenheit(w.temp.day)}}&#176; F</h3>
+                    <div class='col-md-offset-1'>
+                        <h4>Max: {{convertToFahrenheit(w.temp.max)}}&#176; F</h4>
+                        <h4>Min: {{convertToFahrenheit(w.temp.min)}}&#176; F</h4>
+                    </div>
+                </div>
+
+                <div class='col-md-4'>
+                    <h3>Humidity: {{w.humidity}}</h3>
+                    <h3>Pressure: {{w.pressure}}</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!--        <h1>City: {{weatherResult.city.name}}</h1>
+        <h1>Current Weather:</h1>
+        <div class='col-md-offset-1'>
+            <h3>Overall: {{weatherResult.list[0].weather[0].main}}</h3>;
+            <h3>Temp: {{weatherResult.list[0].main.temp * (9 / 5) - 459.67}}&#176; F</h3>
+            <div class='col-md-offset-1'>
+                <h4>Max: {{weatherResult.list[0].main.temp_max * (9 / 5) - 459.67}}&#176; F</h4>
+                <h4>Min: {{weatherResult.list[0].main.temp_min * (9 / 5) - 459.67}}&#176; F</h4>;
+            </div>
+            <h3>Wind {{weatherResult.list[0].wind.speed}}MPH - {{weatherResult.list[0].wind.deg}}&#176;</h3>
+        </div>
+        <h1>Tomorrows Weather:</h1>
+        <div class='col-md-offset-1'>
+            <h3>Overall: {{weatherResult.list[1].weather[0].main}}</h3>
+            <h3>Temp: {{weatherResult.list[1].main.temp * (9 / 5) - 459.67}}&#176 F</h3>
+            <div class='col-md-offset-1'>
+                <h4>Max: {{weatherResult.list[1].main.temp_max * (9 / 5) - 459.67}}&#176; F</h4>
+                <h4>Min: {{weatherResult.list[1].main.temp_min * (9 / 5) - 459.67}}&#176; F</h4>
+            </div>
+            <h3>Wind {{weatherResult.list[1].wind.speed}}mph - {{weatherResult.list[1].wind.deg}}&#176;</h3>
+        </div>
+        <h1>Three Day Weather:</h1>
+        <div class='col-md-offset-1'>
+            <h3>Overall: {{weatherResult.list[2].weather[0].main}}</h3>
+            <h3>Temp: {{weatherResult.list[2].main.temp * (9 / 5) - 459.67}}&#176; F</h3>
+            <div class='col-md-offset-1'>
+                <h4>Max: {{weatherResult.list[2].main.temp_max * (9 / 5) - 459.67}}&#176; F</h4>
+                <h4>Min: {{weatherResult.list[2].main.temp_min * (9 / 5) - 459.67}}&#176; F</h4>
+            </div>
+            <h3>Wind {{weatherResult.list[2].wind.speed}}MPH - {{weatherResult.list[2].wind.deg}}&#176;</h3>
+        </div>-->
+
+
+<!--<h1>Country: {{country}}</h1>
+<h1>Temp: {{currentTemp}}</h1>-->
+
+
+<!--http://api.openweathermap.org/data/2.5/forecast?q=London,uk&appid=b4e4ecd77fc06e6944ca938ab6e909be-->
+<!--http://api.openweathermap.org/data/2.5/forecast/daily-->
+<!--change this URL to:-->
+<!--http://api.openweathermap.org/data/2.5/forecast/daily?APPID=YOURAPIKEY-->
+<!--Open Weather API -> Key: b4e4ecd77fc06e6944ca938ab6e909be-->
